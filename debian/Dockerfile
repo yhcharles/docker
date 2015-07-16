@@ -14,7 +14,7 @@ RUN sed -i "s/Port 22/Port 36000/" /etc/ssh/sshd_config
 # set password
 RUN echo "root:root" | chpasswd
 
-RUN apt-get install vim
+RUN apt-get install -y vim
 RUN apt-get install -y gawk
 
 RUN apt-get install -y python
