@@ -23,3 +23,5 @@ RUN apt-get install -y python-protobuf
 RUN pip install gearman
 
 EXPOSE 36000
+CMD ["/usr/sbin/sshd", "-D"]
+
