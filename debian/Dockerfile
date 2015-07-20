@@ -22,6 +22,8 @@ RUN apt-get install -y python
 RUN apt-get install -y python-pip
 RUN apt-get install -y python-protobuf
 RUN pip install gearman
+RUN pip install ipython
+RUN pip install numpy scipy scikit-learn
 
 EXPOSE 36000
 CMD ["/usr/sbin/sshd", "-D"]
