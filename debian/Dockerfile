@@ -18,7 +18,7 @@ RUN apt-get install -y vim
 RUN apt-get install -y gawk
 RUN apt-get install -y default-jdk
 
-RUN apt-get install -y python
+RUN apt-get install -y python python-dev
 RUN apt-get install -y python-pip
 RUN apt-get install -y python-protobuf
 RUN pip install gearman
