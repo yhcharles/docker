@@ -21,8 +21,9 @@ RUN apt-get install -y default-jdk
 RUN apt-get install -y python python-dev
 RUN apt-get install -y python-pip
 RUN apt-get install -y python-protobuf
+RUN apt-get install -y python-numpy python-scipy python-matplotlib python-sklearn
+RUN apt-get install -y ipython
 RUN pip install gearman
-RUN pip install ipython
 RUN pip install numpy scipy scikit-learn
 
 EXPOSE 36000
