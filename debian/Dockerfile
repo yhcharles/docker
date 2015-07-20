@@ -13,10 +13,14 @@ RUN sed -i "s/PermitRootLogin without-password/PermitRootLogin yes/" /etc/ssh/ss
 RUN sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config
 RUN sed -i "s/Port 22/Port 36000/" /etc/ssh/sshd_config
 RUN echo "root:root" | chpasswd
+RUN echo "alias ls='ls --color=auto'" >> /root/.bashrc
+RUN echo "alias l='ls -l'" >> /root/.bashrc
+RUN echo "alias ll='ls -al'" >> /root/.bashrc
 
 RUN apt-get install -y vim
 RUN apt-get install -y gawk
 RUN apt-get install -y default-jdk
+RUN apt-get install -y less
 
 RUN apt-get install -y python python-dev
 RUN apt-get install -y python-pip
