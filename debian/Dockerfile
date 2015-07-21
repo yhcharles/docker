@@ -27,8 +27,11 @@ RUN apt-get install -y python-pip
 RUN apt-get install -y python-protobuf
 RUN apt-get install -y python-numpy python-scipy python-matplotlib python-sklearn
 RUN apt-get install -y ipython
-RUN pip install gearman
-RUN pip install numpy scipy scikit-learn
+RUN apt-get install -y python-ipdb
+RUN apt-get install -y python-gearman
+RUN apt-get install -y python-numpy
+RUN apt-get install -y python-scipy
+RUN apt-get install -y python-sklearn
 
 EXPOSE 36000
 CMD ["/usr/sbin/sshd", "-D"]
