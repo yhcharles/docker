@@ -7,31 +7,17 @@ RUN apt-get update
 # install ssh service
 # turn on port 36000
 # set password
-RUN apt-get install -y openssh-server
-RUN mkdir -p /var/run/sshd
-RUN sed -i "s/PermitRootLogin without-password/PermitRootLogin yes/" /etc/ssh/sshd_config
-RUN sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config
-RUN sed -i "s/Port 22/Port 36000/" /etc/ssh/sshd_config
-RUN echo "root:root" | chpasswd
-RUN echo "alias ls='ls --color=auto'" >> /root/.bashrc
-RUN echo "alias l='ls -l'" >> /root/.bashrc
-RUN echo "alias ll='ls -al'" >> /root/.bashrc
+RUN apt-get install -y openssh-server && \
+        mkdir -p /var/run/sshd && \
+        sed -i "s/PermitRootLogin without-password/PermitRootLogin yes/" /etc/ssh/sshd_config && \
+        sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config && \
+        sed -i "s/Port 22/Port 36000/" /etc/ssh/sshd_config && \
+        echo "root:root" | chpasswd && \
+        echo "alias ls='ls --color=auto'" >> /root/.bashrc && \
+        echo "alias l='ls -l'" >> /root/.bashrc && \
+        echo "alias ll='ls -al'" >> /root/.bashrc
 
-RUN apt-get install -y vim
-RUN apt-get install -y gawk
-RUN apt-get install -y default-jdk
-RUN apt-get install -y less
-
-RUN apt-get install -y python python-dev
-RUN apt-get install -y python-pip
-RUN apt-get install -y python-protobuf
-RUN apt-get install -y python-numpy python-scipy python-matplotlib python-sklearn
-RUN apt-get install -y ipython
-RUN apt-get install -y python-ipdb
-RUN apt-get install -y python-gearman
-RUN apt-get install -y python-numpy
-RUN apt-get install -y python-scipy
-RUN apt-get install -y python-sklearn
+RUN apt-get install -y vim gawk default-jdk less wget curl python python-dev python-pip ipython python-protobuf python-numpy python-scipy python-matplotlib python-sklearn python-ipdb python-gearman
 
 EXPOSE 36000
 CMD ["/usr/sbin/sshd", "-D"]
