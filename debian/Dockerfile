@@ -2,6 +2,9 @@
 FROM debian:jessie
 MAINTAINER charlieyan
 
+# set localtime
+RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
 RUN apt-get update
 
 # install ssh service
