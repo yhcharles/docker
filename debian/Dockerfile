@@ -21,7 +21,7 @@ RUN apt-get install -y openssh-server && \
         echo "alias ll='ls -al'" >> /root/.bashrc
 
 RUN apt-get install -y vim gawk default-jdk less wget curl python python-dev python-pip ipython python-protobuf python-numpy python-scipy python-matplotlib python-sklearn python-ipdb python-gearman
-RUN pip install goless
+RUN pip install goless snakebite
 
 EXPOSE 36000
 CMD ["/usr/sbin/sshd", "-D"]
