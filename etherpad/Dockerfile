@@ -1,4 +1,4 @@
-FROM dockerfile/nodejs
+FROM google/nodejs
 MAINTAINER John E. Arnold, iohannes.eduardus.arnold@gmail.com
 
 # Get Etherpad-lite's other dependencies
