@@ -10,7 +10,7 @@ RUN apt-get update
 # install ssh service
 # turn on port 36000
 # set password
-RUN apt-get -qq install -y openssh-server && \
+RUN (apt-get -qq install -y openssh-server && \
         mkdir -p /var/run/sshd && \
         sed -i "s/PermitRootLogin without-password/PermitRootLogin yes/" /etc/ssh/sshd_config && \
         sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config && \
@@ -18,11 +18,9 @@ RUN apt-get -qq install -y openssh-server && \
         echo "root:root" | chpasswd && \
         echo "alias ls='ls --color=auto'" >> /root/.bashrc && \
         echo "alias l='ls -l'" >> /root/.bashrc && \
-        echo "alias ll='ls -al'" >> /root/.bashrc
+        echo "alias ll='ls -al'" >> /root/.bashrc)
 
 RUN apt-get -qq install -y git vim gawk default-jdk less wget curl python python-dev python-pip ipython python-protobuf python-numpy python-scipy python-matplotlib python-sklearn python-ipdb python-gearman libkrb5-dev libsasl2-dev
-RUN pip install goless snakebite
-RUN pip install -e git+https://github.com/bwhite/hadoopy#egg=hadoopy
 
 EXPOSE 36000
 CMD ["/usr/sbin/sshd", "-D"]
