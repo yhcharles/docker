@@ -20,7 +20,7 @@ RUN (apt-get -qq install -y openssh-server && \
         echo "alias l='ls -l'" >> /root/.bashrc && \
         echo "alias ll='ls -al'" >> /root/.bashrc)
 
-RUN apt-get -qq install -y git vim gawk default-jdk less wget curl python python-dev python-pip ipython python-protobuf python-numpy python-scipy python-matplotlib python-sklearn python-ipdb python-gearman libkrb5-dev libsasl2-dev
+RUN apt-get -qq install -y tmux git vim gawk default-jdk less wget curl python python-dev python-pip ipython python-protobuf python-numpy python-scipy python-matplotlib python-sklearn python-ipdb python-gearman libkrb5-dev libsasl2-dev
 
 EXPOSE 36000
 CMD ["/usr/sbin/sshd", "-D"]
