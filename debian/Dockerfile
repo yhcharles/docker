@@ -22,6 +22,7 @@ RUN (apt-get -qq install -y openssh-server && \
         echo "alias ll='ls -al'" >> /root/.bashrc)
 
 RUN apt-get -qq install -y tmux git vim gawk default-jdk less wget curl python python-dev python-pip ipython python-protobuf python-numpy python-scipy python-matplotlib python-sklearn python-ipdb python-zmq ipython-notebook python-gearman libkrb5-dev libsasl2-dev
+RUN pip install ipyparallel
 
 EXPOSE 36000
 CMD ["/usr/sbin/sshd", "-D"]
