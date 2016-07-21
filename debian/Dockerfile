@@ -44,7 +44,8 @@ RUN apt-get -qq install -y \
         ipython-notebook \
         python-gearman \
         libkrb5-dev \
-        libsasl2-dev
+        libsasl2-dev \
+        iptables
 RUN pip install ipyparallel sh
 
 EXPOSE 36000
